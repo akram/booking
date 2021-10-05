@@ -1,10 +1,12 @@
 {
     "elements": {
         "members-two": {},
+        "booking": {},
         "booking-table": {},
         "member-name": {},
         "members-single": {},
         "members-three": {},
+        "court2:booking": {},
         "member-field2": {},
         "members-one": {},
         "member-field1": {},
@@ -18,6 +20,7 @@
         "membership-types": {},
         "member-email": {},
         "member-table": {},
+        "court1:booking": {},
         "id": {},
         "members-nesting": {}
     },

@@ -12,8 +12,9 @@
             Bookings
         </h1>
         
-        <booking-table fields="startTime peak">
-            <!--<membership-types fields="name"/>-->
+        <booking-table fields="startTime">
+            <court1:booking court="1" fields="madeBy"></court1:booking>
+            <court2:booking court="2" fields="madeBy"></court2:booking>
         </booking-table>
         
         <script src="bookings.js" type="module"></script>

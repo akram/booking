@@ -28,9 +28,9 @@ insert into SLOT (id, slot, startTime, endTime, peak) values (23, 23, '21:30', '
 insert into SLOT (id, slot, startTime, endTime, peak) values (24, 24, '22:15', '23:00', false);
 
 
-insert into BOOKING (id, court, forDate, madeBy, madeOn, slot) values (25, 1, '2021-10-04', 'phillip.kruger', '2021-10-04', 1);
-insert into BOOKING (id, court, forDate, madeBy, madeOn, slot) values (26, 1, '2021-10-04', 'leon.duvenage', '2021-10-04', 16);
-insert into BOOKING (id, court, forDate, madeBy, madeOn, slot) values (27, 2, '2021-10-04', 'jeanine.vaneyssen', '2021-10-04', 16);
-insert into BOOKING (id, court, forDate, madeBy, madeOn, slot) values (28, 1, '2021-10-04', 'corne.duvenage', '2021-10-04', 17);
-insert into BOOKING (id, court, forDate, madeBy, madeOn, slot) values (29, 2, '2021-10-04', 'koch.dejager', '2021-10-04', 17);
+insert into BOOKING (id, court, forDate, madeBy, madeOn, slot) values (25, 1, CURRENT_TIMESTAMP, 'phillip.kruger', CURRENT_TIMESTAMP, 1);
+insert into BOOKING (id, court, forDate, madeBy, madeOn, slot) values (26, 1, CURRENT_TIMESTAMP, 'leon.duvenage', CURRENT_TIMESTAMP, 16);
+insert into BOOKING (id, court, forDate, madeBy, madeOn, slot) values (27, 2, CURRENT_TIMESTAMP, 'jeanine.vaneyssen', CURRENT_TIMESTAMP, 16);
+insert into BOOKING (id, court, forDate, madeBy, madeOn, slot) values (28, 1, CURRENT_TIMESTAMP, 'corne.duvenage', CURRENT_TIMESTAMP, 17);
+insert into BOOKING (id, court, forDate, madeBy, madeOn, slot) values (29, 2, CURRENT_TIMESTAMP, 'koch.dejager', CURRENT_TIMESTAMP, 17);
 

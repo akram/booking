@@ -61,35 +61,19 @@ export class BookingTable extends LitElement {
                 var slotFields = this.fields.split(" ");
                 return html`
                 
-                    <table part="bookings-table" border="1">
-                        <thead>
-                            <tr>
-                                ${slotFields.map(field => html`
-                                    <th>
-                                        ${camelize(field)}
-                                    </th>
-                                `)}
-                                ${[...innerQueries.keys()].map(key => html`    
-                                    ${innerQueries.get(key).split(" ").map(innerField => html`
-                                    <th>
-                                        ${camelize(key) + " " + camelize(innerField)}
-                                    </th>    
-                                    `)}
-                                `)}
-                            </tr>
-                        </thead>
-                        <tbody>
+                    <table part="table">
+                        <tbody part="tbody">
                             ${dailySlots.map(dailySlot => html`
-                            <tr>
+                            <tr part="tr">
                                 ${slotFields.map(field => html`
-                                    <td>
+                                    <td part="td">
                                         ${dailySlot[field]}
                                     </td>
                                 `)}
                 
                                 ${[...innerQueries.keys()].map(key => html`
                                     ${innerQueries.get(key).split(" ").map(innerField => html`
-                                        <td>
+                                        <td part="td">
                                         ${getInnerField(dailySlot,key,innerField)}
                                         </td>
                                     `)}
@@ -107,10 +91,6 @@ export class BookingTable extends LitElement {
 };
 
 function getInnerField(object, key, field){
-    
-    console.log(JSON.stringify(object));
-    console.log(key);
-    console.log(field);
     var innerObject = object[key];
     if(innerObject === null){
         return "";
@@ -118,13 +98,6 @@ function getInnerField(object, key, field){
     return innerObject[field];
 }
 
-// From aB to A b
-function camelize(str) {
-    var f = str.charAt(0);
-    return f.toUpperCase() + str.slice(1);
-}
-
-// From a-b to aB
 function camelCase(input) { 
     return input.toLowerCase().replace(/-(.)/g, function(match, group1) {
         return group1.toUpperCase();

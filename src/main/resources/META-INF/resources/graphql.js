@@ -1,7 +1,15 @@
 /* 
  * Some graphql related helper functions
  */
-const documentpath = '/graphql';
+var documentpath = '/graphql';
+
+const scriptTags = document.scripts;
+for (var i = 0; i < scriptTags.length; i++) {
+    let url = new URL(scriptTags[i].src);
+    if(url.pathname.endsWith("/bookings.js")){
+        documentpath = url.origin + documentpath;
+    }
+}
 
 export async function graphQLRequest(query, variables = {}, operationName = ""){
     

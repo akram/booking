@@ -1,10 +1,10 @@
 /* 
  * Some graphql related helper functions
  */
-var documentpath = '/graphql';
+let documentpath = '/graphql';
 
 const scriptTags = document.scripts;
-for (var i = 0; i < scriptTags.length; i++) {
+for (let i = 0; i < scriptTags.length; i++) {
     let url = new URL(scriptTags[i].src);
     if(url.pathname.endsWith("/bookings.js")){
         documentpath = url.origin + documentpath;
@@ -14,7 +14,7 @@ for (var i = 0; i < scriptTags.length; i++) {
 export async function graphQLRequest(query, variables = {}, operationName = ""){
     
     try {
-        let response = await fetch(documentpath, {
+        const response = await fetch(documentpath, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

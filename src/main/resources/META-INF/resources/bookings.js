@@ -19,15 +19,15 @@ export class BookingTable extends LitElement {
         const innerQueries = new Map();
 
         let nodes = [...this.children].map(n => {
-            var query = n.nodeName.toLowerCase();
-            var fields = n.getAttribute("fields");
+            const query = n.nodeName.toLowerCase();
+            const fields = n.getAttribute("fields");
             
             innerQueries.set(camelCase(query.substr(0, query.indexOf(':'))) ,fields);
             
-            for (var i = 0, atts = n.attributes, size = atts.length, arr = []; i < size; i++){
-                var attName = atts[i].nodeName;
+            for (let i = 0, atts = n.attributes, size = atts.length, arr = []; i < size; i++){
+                let attName = atts[i].nodeName;
                 if(attName !== "fields"){
-                    var attVal = atts[i].nodeValue;
+                    let attVal = atts[i].nodeValue;
                     arr.push(attName + ":" + attVal);
                 }
             }
@@ -41,7 +41,7 @@ export class BookingTable extends LitElement {
         
         ).join(' ');
         
-        var request =   `query DailyBookings {
+        const request =   `query DailyBookings {
                             daily:slots{
                                 `
                                 + this.fields + ` 
@@ -50,15 +50,15 @@ export class BookingTable extends LitElement {
                             }
                         }`;
           
-        var content = graphQLRequest(request, {}, "DailyBookings").then(response => {
-            var dailySlots = response.data.daily;
-            var errors = response.errors;
+        const content = graphQLRequest(request, {}, "DailyBookings").then(response => {
+            let dailySlots = response.data.daily;
+            let errors = response.errors;
             
             if(dailySlots === null && errors !== null){
                 return "There are errors";
             }else{
                 
-                var slotFields = this.fields.split(" ");
+                const slotFields = this.fields.split(" ");
                 return html`
                 
                     <table part="table">
@@ -91,7 +91,7 @@ export class BookingTable extends LitElement {
 };
 
 function getInnerField(object, key, field){
-    var innerObject = object[key];
+    let innerObject = object[key];
     if(innerObject === null){
         return "";
     }
@@ -105,4 +105,3 @@ function camelCase(input) {
 }
 
 customElements.define('booking-table', BookingTable);
-

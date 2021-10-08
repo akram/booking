@@ -24,7 +24,7 @@ export class BookingTable extends LitElement {
             
             innerQueries.set(camelCase(query.substr(0, query.indexOf(':'))) ,fields);
             
-            for (let i = 0, atts = n.attributes, size = atts.length, arr = []; i < size; i++){
+            for (var i = 0, atts = n.attributes, size = atts.length, arr = []; i < size; i++){
                 let attName = atts[i].nodeName;
                 if(attName !== "fields"){
                     let attVal = atts[i].nodeValue;
@@ -36,10 +36,7 @@ export class BookingTable extends LitElement {
             }else{
                 return camelCase(query) + "(" + arr.join() + ") {" + fields + "}";
             }
-        }
-                
-        
-        ).join(' ');
+        }).join(' ');
         
         const request =   `query DailyBookings {
                             daily:slots{
@@ -62,9 +59,25 @@ export class BookingTable extends LitElement {
                 return html`
                 
                     <table part="table">
+                        <thead part="thead">
+                            <tr part="thead_tr">
+                                ${slotFields.map(field => html`
+                                    <th part="th">
+                                        ${camelize(field)}
+                                    </th>
+                                `)}
+                                ${[...innerQueries.keys()].map(key => html`    
+                                    ${innerQueries.get(key).split(" ").map(innerField => html`
+                                    <th part="th">
+                                        ${camelize(key)}
+                                    </th>    
+                                    `)}
+                                `)}
+                            </tr>
+                        </thead>
                         <tbody part="tbody">
                             ${dailySlots.map(dailySlot => html`
-                            <tr part="tr">
+                            <tr part="tbody_tr">
                                 ${slotFields.map(field => html`
                                     <td part="td">
                                         ${dailySlot[field]}
@@ -83,9 +96,7 @@ export class BookingTable extends LitElement {
                     </table>`;
             }
         });
-        
         return html`${until(content, html`<loading>Loading...</loading>`)}`;
-        
     };
     
 };
@@ -98,6 +109,13 @@ function getInnerField(object, key, field){
     return innerObject[field];
 }
 
+// From aB to A b
+function camelize(str) {
+    var f = str.charAt(0);
+    return f.toUpperCase() + str.slice(1);
+}
+
+// From a-b to aB
 function camelCase(input) { 
     return input.toLowerCase().replace(/-(.)/g, function(match, group1) {
         return group1.toUpperCase();

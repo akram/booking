@@ -60,7 +60,7 @@ export class BookingTable extends LitElement {
                 
                     <table part="table">
                         <thead part="thead">
-                            <tr part="thead_tr">
+                            <tr part="tr">
                                 ${slotFields.map(field => html`
                                     <th part="th">
                                         ${camelize(field)}
@@ -77,7 +77,7 @@ export class BookingTable extends LitElement {
                         </thead>
                         <tbody part="tbody">
                             ${dailySlots.map(dailySlot => html`
-                            <tr part="tbody_tr">
+                            <tr part="tr">
                                 ${slotFields.map(field => html`
                                     <td part="td">
                                         ${dailySlot[field]}

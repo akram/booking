@@ -1,11 +1,18 @@
 import {graphQLRequest} from '/graphql.js';
 
-import {LitElement, html} from 'https://unpkg.com/lit@2.0.0/index.js?module';
-import {until} from 'https://unpkg.com/lit@2.0.0/directives/until.js?module';
+import {LitElement, html} from 'https://unpkg.com/lit@2.0.2/index.js?module';
+import {until} from 'https://unpkg.com/lit@2.0.2/directives/until.js?module';
 
 import 'http://localhost:9090/member.js';
 
 export class BookingTable extends LitElement {
+    
+    static styles = css`
+        table, td, th {
+            border-bottom: 1pt solid var(--table-border-color, black);
+            border-collapse: collapse;
+        }
+    `;
     
     static properties = {
         fields: {type: String},

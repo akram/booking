@@ -1,6 +1,6 @@
 import {graphQLRequest} from '/graphql.js';
 
-import {LitElement, html} from 'https://unpkg.com/lit@2.0.2/index.js?module';
+import {LitElement, html, css} from 'https://unpkg.com/lit@2.0.2/index.js?module';
 import {until} from 'https://unpkg.com/lit@2.0.2/directives/until.js?module';
 
 import 'http://localhost:9090/member.js';

@@ -1,4 +1,4 @@
-package technology.overcast.clubs;
+package technology.overcast.booking;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.eclipse.microprofile.graphql.GraphQLApi;
 import org.eclipse.microprofile.graphql.Query;
 import org.eclipse.microprofile.graphql.Source;
-import technology.overcast.clubs.model.Slot;
-import technology.overcast.clubs.model.Booking;
+import technology.overcast.booking.model.Slot;
+import technology.overcast.booking.model.Booking;
 
 @GraphQLApi
 public class SlotApi {

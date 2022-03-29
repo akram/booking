@@ -1,4 +1,4 @@
-package technology.overcast.clubs.model;
+package technology.overcast.booking.model;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import java.time.LocalTime;

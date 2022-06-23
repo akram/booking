@@ -3,8 +3,6 @@ import {graphQLRequest} from './graphql.js';
 import {LitElement, html, css} from 'lit';
 import {until} from 'lit/directives/until.js';
 
-import 'http://localhost:9090/member.js';
-
 export class BookingTable extends LitElement {
     
     static styles = css`

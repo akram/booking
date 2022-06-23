@@ -24,3 +24,6 @@ hs_err_pid*
 /target/
 /src/main/ui/node_modules/
 /src/main/ui/dist/
+
+node_modules/
+build/
